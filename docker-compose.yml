@@ -1,13 +1,12 @@
-version: '3'
+version: '2'
+
 services:
-  sentinel:
+
+  sentinel:
     image: hpy253215039/sentinel-dashboard:1.7.1
-    container_name: sentinel
-    restart: on-failure
-#    build:
-#      context: .
-#      dockerfile: Dockerfile
-    ports:
-      - "8718:8080"
-    environment:
-      - JAVA_OPTS=-Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom -Dcsp.sentinel.api.port=8719
+    container_name: sentinel
+    restart: on-failure
+    environment:
+      JAVA_OPTS: "-Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom -Dcsp.sentinel.api.port=8719"
+    ports:
+      - "8718:8080"
