@@ -10,5 +10,6 @@ RUN mkdir -p /sentinel-dashboard \
 ADD ./jar/1.7.1/ /sentinel-dashboard/
 
 EXPOSE 8080
+EXPOSE 8719
 
 CMD java ${JAVA_OPTS} -jar /sentinel-dashboard/sentinel-dashboard-1.7.1.jar
