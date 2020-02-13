@@ -1,4 +1,13 @@
-version: '2'
+version: '3'
+
+#networks:
+#  cow-cow5:
+#    driver: bridge
+#    ipam:
+#      driver: default
+#      config:
+#     - subnet: 172.19.0.0/16
+#       gateway: 172.19.0.1
 
 services:
 
@@ -10,4 +19,12 @@ services:
       JAVA_OPTS: "-Dserver.port=8080 -Dcsp.sentinel.dashboard.server=localhost:8080 -Dproject.name=sentinel-dashboard -Djava.security.egd=file:/dev/./urandom -Dcsp.sentinel.api.port=8719"
     ports:
       - "8718:8080"
-			- "8719:8719"
+      - "8719:8719"
+    networks:
+    - default
+
+networks:
+  default:
+    external:
+      name: docker-quick-start_default
+        
